@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-sc+s9(3)_fv5l15wd@^g2e)$oh3n5+@w--0xs==4#!i@k8rno$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["djangoreact-dev.us-west-2.elasticbeanstalk.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
