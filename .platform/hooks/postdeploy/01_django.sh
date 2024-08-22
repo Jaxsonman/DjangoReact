@@ -3,6 +3,8 @@
 # Activate the virtual environment
 source /var/app/venv/*/bin/activate && {
 
+echo "django.sh has started *67"
+
 # Check if npm is installed
 if ! command -v npm &> /dev/null
 then
