@@ -32,6 +32,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./templates/index.html", // Adjust if your index.html is elsewhere
+      minify: false,
     }),
   ],
   stats: {
