@@ -1,6 +1,15 @@
 #!/bin/bash
 
+# Activate the virtual environment
 source /var/app/venv/*/bin/activate && {
+
+# Check if npm is installed
+if ! command -v npm &> /dev/null
+then
+    echo "npm could not be found"
+    exit 1
+fi
+
 # Navigate to the frontend directory
 cd frontend
 
@@ -13,13 +22,12 @@ npm run build
 # Navigate back to the Django project root
 cd ..
 
-# collecting static files
-python manage.py collectstatic --noinput;
-# log which migrations have already been applied
-python manage.py showmigrations;
-# migrate the rest
-python manage.py migrate --noinput;
-# another command to create a superuser (write your own)
-python manage.py createsu;
+# Collect static files (including React build)
+python manage.py collectstatic --noinput
 
+# Log which migrations have already been applied
+python manage.py showmigrations
+
+# Apply any remaining migrations
+python manage.py migrate --noinput
 }
