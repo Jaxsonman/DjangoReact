@@ -4,7 +4,7 @@ const webpack = require("webpack");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "frontend/build/static"), // Ensure this path matches STATICFILES_DIRS in Django
+    path: path.resolve(__dirname, "build/static"), // Ensure this path matches STATICFILES_DIRS in Django
     filename: "bundle.js",
     publicPath: "/static/", // This should match STATIC_URL in Django
   },
