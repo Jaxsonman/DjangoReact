@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -29,5 +30,11 @@ module.exports = {
         NODE_ENV: JSON.stringify("production"),
       },
     }),
+    new HtmlWebpackPlugin({
+      template: "./templates/index.html", // Adjust if your index.html is elsewhere
+    }),
   ],
+  stats: {
+    children: true, // This will show detailed information about child compilations
+  },
 };
