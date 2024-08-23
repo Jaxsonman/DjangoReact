@@ -1,16 +1,31 @@
 import React from "react";
 import { Outlet, createBrowserRouter } from "react-router-dom";
-import App from "../App";
 import Services from "../pages/Services";
+import Home from "../pages/Home";
+import AboutUs from "../pages/AboutUs";
+import Contact from "../pages/Contact";
+import Blog from "../pages/Blog";
 
 const routes = [
   {
     path: "/",
-    element: <App />,
+    element: <Home />,
   },
   {
     path: "/services",
-    element: <div>services</div>,
+    element: <Services />,
+  },
+  {
+    path: "/aboutUs",
+    element: <AboutUs />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
+  },
+  {
+    path: "/blog",
+    element: <Blog />,
   },
 ];
 
