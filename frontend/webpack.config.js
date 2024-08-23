@@ -5,9 +5,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "build/static"), // Ensure this path matches STATICFILES_DIRS in Django
-    filename: "bundle.js",
-    publicPath: "/static/", // This should match STATIC_URL in Django
+    path: path.resolve(__dirname, "./static/js"),
+    filename: "[name].js",
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, "static"),
+    publicPath: "/static/js/",
+    historyApiFallback: true, // This will ensure client-side routing works
   },
   module: {
     rules: [
@@ -27,7 +31,7 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env": {
         // This has effect on the react lib size
-        NODE_ENV: JSON.stringify("production"),
+        NODE_ENV: JSON.stringify("development"),
       },
     }),
     new HtmlWebpackPlugin({
@@ -38,4 +42,5 @@ module.exports = {
   stats: {
     children: true, // This will show detailed information about child compilations
   },
+  devtool: "source-map", // Helps with debugging
 };
